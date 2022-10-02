@@ -147,7 +147,7 @@ contract FlightSuretyApp {
                                 )
                                 internal
     {
-        flightSuretyData.up
+        flightSuretyData.updateFlightData(flight, timestamp, airline, statusCode);
     }
 
 
