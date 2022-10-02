@@ -121,7 +121,7 @@ contract FlightSuretyData {
     */      
     function isOperational() 
                             public 
-                            view 
+                            view
                             returns(bool) 
     {
         return operational;

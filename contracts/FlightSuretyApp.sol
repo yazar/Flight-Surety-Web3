@@ -89,7 +89,7 @@ contract FlightSuretyApp {
 
     function isOperational() 
                             public 
-                            pure 
+                            view 
                             returns(bool) 
     {
         return flightSuretyData.isOperational();  // Modify to call data contract's status
@@ -114,7 +114,7 @@ contract FlightSuretyApp {
                             returns(bool success, uint256 votes)
     {
 
-        (success, votes) = registerAirline(airlineAddress, name);
+        (success, votes) = flightSuretyData.registerAirline(airlineAddress, name);
 
         return (success, votes);
     }
@@ -348,7 +348,7 @@ contract FlightSuretyApp {
 
 contract FlightSuretyData {
     function isOperational() public view returns(bool);
-    function registerAirline(address airlineAddress, string airlineName) external;
+    function registerAirline(address airlineAddress, string airlineName) external returns(bool, uint256);
     function registerFlight (string flight, uint256 timestamp) external;
     function updateFlightData(string flight, uint256 timestamp, address airline, uint8 statusCode) external;
 }
